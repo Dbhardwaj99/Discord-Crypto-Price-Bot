@@ -29,7 +29,7 @@ def price(symbol):
     var = data['data'][symbol]['quote']['USD']['price']
     round(var, 2)
     message=(f"The current price of {symbol} is {var}.")
-    return var
+    return message
 
 def supply(symbol):
     parameters = {
