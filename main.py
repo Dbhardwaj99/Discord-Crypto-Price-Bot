@@ -4,6 +4,7 @@ from function_callback import *
 
 client = discord.Client()
 
+discord_api_token = os.environ.get('discord_API_key')
 
 @client.event
 async def on_ready():
@@ -22,4 +23,4 @@ async def on_message(message):
         await message.channel.send(supply(message.content[8:]))
 
 
-client.run('OTMwMDM4NzYxNTUzNzk3MTIw.YdwEGA.iFzOUhwTo0FRbXhekgmTHycqaGY')
+client.run(discord_api_token)

@@ -1,11 +1,12 @@
 from requests  import *
+import os
 import json
 
 trial_url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 trial_api_key = 'b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c'
 
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
-api_key = '2fb74590-7a69-4d74-823d-a1f4e495b147'
+cmc_api_token = os.environ.get('CMC_API_key')
 def price(symbol):
     parameters = {
         'symbol': symbol,
@@ -14,7 +15,7 @@ def price(symbol):
 
     headers = {
         'Accepts': 'application/json',
-        'X-CMC_PRO_API_KEY': api_key,
+        'X-CMC_PRO_API_KEY': cmc_api_token,
     }
 
     session = Session()
@@ -39,7 +40,7 @@ def supply(symbol):
 
     headers = {
         'Accepts': 'application/json',
-        'X-CMC_PRO_API_KEY': api_key,
+        'X-CMC_PRO_API_KEY': cmc_api_token,
     }
 
     session = Session()
